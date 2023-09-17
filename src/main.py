@@ -109,7 +109,7 @@ textY  = 16
 GameOver = pygame.font.Font("freesansbold.ttf", 64)
 def game_over() :
     go = GameOver.render("GAME OVER", True, (255,50,255))
-    window.blit(go, ((width-64*6)/2, (height-1)/2))
+    window.blit(go, ((width-64*6)/2, (height-64*2)/2))
     
 def show_score(x,y) :
     score = font.render("Score :" +str(score_value), True, (255, 255, 0))
