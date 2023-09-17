@@ -21,12 +21,8 @@ pygame.display.set_caption("Space Invaders")
 icon = pygame.image.load('./resources/rocket.png')
 pygame.display.set_icon(icon)
 
-
-
-
 # Quit events
 Playing = False
-
 
 # PLayer and Its coordinates
 playerImage = pygame.image.load("./resources/player.png")
@@ -35,7 +31,6 @@ pCoordY =  height -playerImage.get_height()
 Delta = 0.5
 pMoveX  = 0
 pMoveY = 0
-
 
 # Enemy and Its coordinates
 
@@ -56,12 +51,9 @@ bMoveY = bDelta
 bCoordX = (width/2)-playerImage.get_width()/2 - 1
 bCoordY = height + playerImage.get_height()
  
-
-
 # Backgroud
 BackgroundImage = pygame.image.load("./resources/background.png")
 BackgroundImage = pygame.transform.scale(BackgroundImage, (width, height))
-
 
 # backgroud sound
 mixer.music.load("./resources/background.wav")
@@ -75,11 +67,11 @@ def fire(x,y) :
 
 def enemy(x,y, enemyImage) :
     window.blit(source=enemyImage, dest=(x,y))
+
 def player(x,y) :
     # Draw in the screen display
     window.blit(source=playerImage,dest = (x, y))
-    pass 
-
+    
 def boundaries(x,y) :
 
     if x >= width-1-playerImage.get_width() :
@@ -111,11 +103,7 @@ def isCollision(eCoordX, eCoordY, bCoordX, bCoordY) :
        return True
    return False
 
-
-
-
 #Score
-
 score_value = 0
 font = pygame.font.Font("freesansbold.ttf", 24)
 textX = 16
@@ -129,8 +117,9 @@ def game_over() :
 def show_score(x,y) :
     score = font.render("Score :" +str(score_value), True, (255, 255, 0))
     window.blit(score, (x,y))
-# The Game Loop
 
+
+# The Game Loop
 while not Playing :
 
 
@@ -174,7 +163,7 @@ while not Playing :
     pCoordX += pMoveX
     pCoordY += pMoveY
     pCoordX, pCoordY = boundaries(pCoordX, pCoordY)
-    
+
     # enemy movement  and boundary check
     for i in range(nbEnemies) :
 
@@ -196,6 +185,7 @@ while not Playing :
             eCoordY[i] += random.randint(0,100)
 
         eCoordX[i], eCoordY[i] = boundaries(eCoordX[i], eCoordY[i])
+
         #Collision
         collision = isCollision(eCoordX[i], eCoordY[i], bCoordX, bCoordY)
         if collision :
@@ -209,7 +199,6 @@ while not Playing :
             eCoordX[i] = random.randint(0, width  - enemyImage[i].get_width() - 1)
             eCoordY[i] = random.randint(0, 150)
 
-
     # Bullet Movement
     if bCoordY <=0 :
         bCoordY = height -playerImage.get_height()
@@ -218,7 +207,6 @@ while not Playing :
         fire(bCoordX, bCoordY)
         bCoordY -= bMoveY
 
-    
     # Call the player function and draw the characters in the screen
     player(pCoordX, pCoordY)
 
