@@ -122,9 +122,7 @@ fps = 120
 # The Game Loop
 while not Playing :
 
-    # ticking 
-    clock.tick(fps)
-
+    
     #  Paint the surface(Screen) with RGB Color
     window.fill(color=color_map) # not needed anymore
 
@@ -217,3 +215,6 @@ while not Playing :
     
     #update the changes made
     pygame.display.update()
+    # ticking 
+    clock.tick(fps)
+
