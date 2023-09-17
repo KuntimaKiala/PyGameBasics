@@ -5,11 +5,8 @@ import math
 
 
 
-
 # initialize the pygame
 pygame.init()
-
-
 
 #create a screen with defined shape ans size
 height, width = 700, 700
@@ -118,10 +115,15 @@ def show_score(x,y) :
     score = font.render("Score :" +str(score_value), True, (255, 255, 0))
     window.blit(score, (x,y))
 
+# Clock 
+clock = pygame.time.Clock()
+fps = 120
 
 # The Game Loop
 while not Playing :
 
+    # ticking 
+    clock.tick(fps)
 
     #  Paint the surface(Screen) with RGB Color
     window.fill(color=color_map) # not needed anymore
@@ -212,11 +214,6 @@ while not Playing :
 
     #Text
     show_score(textX,textY)
-    
-
-
-    
-    
     
     #update the changes made
     pygame.display.update()
