@@ -5,7 +5,7 @@ Simple Space Invader Game To Teach Me PyGame, The Program Follows A Procedural A
     python src/main.py  <br/>
 
 # Requirements
-    pygame duh 
+    pygame (duh)
 
 # OS 
     Linux (Sorry)
