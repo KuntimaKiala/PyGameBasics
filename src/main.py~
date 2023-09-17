@@ -1,0 +1,37 @@
+import pygame
+
+
+
+# initialize the pygame
+pygame.init()
+
+
+
+#create a screen with defined shape ans size
+height, width = 500, 500
+window = pygame.display.set_mode(size=(height,width),)
+
+color_map=(255,255,255)
+# Title and Icon
+pygame.display.set_caption("Space Invaders")
+icon = pygame.image.load('./resources/rocket.png')
+pygame.display.set_icon(icon)
+
+# Quit events
+Playing = False
+
+
+# The Game Loop 
+while not Playing :
+    # Check for events
+    for event in pygame.event.get() :
+        # The Quit Event
+        if event.type == pygame.QUIT :
+            Playing = True
+            
+
+    #  Paint the surface(Screen) with RGB Color
+    window.fill(color=color_map)
+
+    #update the changes made
+    pygame.display.update()
